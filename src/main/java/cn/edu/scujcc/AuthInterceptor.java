@@ -28,7 +28,7 @@ public class AuthInterceptor implements HandlerInterceptor{
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		String uri=request.getRequestURI();
-		if(uri.startsWith("/user/login") || uri.startsWith("/user/register")) {
+		if(uri.startsWith("/user/login") || uri.startsWith("/user/register")|| uri.startsWith("/commodity")) {
 			return true;
 		}
 		if (response.getStatus() == HttpServletResponse.SC_FORBIDDEN) { //403出错也免去身份检查

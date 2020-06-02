@@ -15,11 +15,11 @@ public class Comment implements Serializable {
 	
 	
 	private static final long serialVersionUID = 9025921434272724054L;
-	private String author;//评论作者
-	private String content;//评论内容
+	private String author;//下单顾客
+	private String content;//配送餐桌编号（配送地址）
 	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")  //日期时间格式
-	private LocalDateTime dt=LocalDateTime.now();//评论日期时间
-	private int star=0; //评论点赞数量
+	private LocalDateTime dt=LocalDateTime.now();//下单评论日期时间
+	private int star=0; //下单数量
 	
 	
 	public int getStar() {

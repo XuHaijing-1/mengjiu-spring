@@ -18,7 +18,7 @@ public class Commodity implements Serializable {
 	private String commodityname;  //商品名称
 	private String category; //商品类别
 	private String production;  //商品产地
-	private List<Comment>comments;  //评论
+	private List<Comment>comments;  //下单信息
 	private String cover; //商品封面图片
 	private int price=0;  //商品价格
 	
