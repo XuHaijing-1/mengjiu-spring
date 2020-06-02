@@ -20,25 +20,50 @@ public class Commodity implements Serializable {
 	private String production;  //商品产地
 	private List<Comment>comments;  //下单信息
 	private String cover; //商品封面图片
+	private int score; //评分
+	private int abv; //酒精度
+	private String describe; //描述
 	private int price=0;  //商品价格
 	
 	
+	public int getScore() {
+		return score;
+	}
+	public void setScore(int score) {
+		this.score = score;
+	}
+	public int getAbv() {
+		return abv;
+	}
+	public void setAbv(int abv) {
+		this.abv = abv;
+	}
+	public String getDescribe() {
+		return describe;
+	}
+	public void setDescribe(String describe) {
+		this.describe = describe;
+	}
 	@Override
 	public String toString() {
 		return "Commodity [id=" + id + ", commodityname=" + commodityname + ", category=" + category + ", production="
-				+ production + ", comments=" + comments + ", cover=" + cover + ", price=" + price + "]";
+				+ production + ", comments=" + comments + ", cover=" + cover + ", score=" + score + ", abv=" + abv
+				+ ", describe=" + describe + ", price=" + price + "]";
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + abv;
 		result = prime * result + ((category == null) ? 0 : category.hashCode());
 		result = prime * result + ((comments == null) ? 0 : comments.hashCode());
 		result = prime * result + ((commodityname == null) ? 0 : commodityname.hashCode());
 		result = prime * result + ((cover == null) ? 0 : cover.hashCode());
+		result = prime * result + ((describe == null) ? 0 : describe.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + price;
 		result = prime * result + ((production == null) ? 0 : production.hashCode());
+		result = prime * result + score;
 		return result;
 	}
 	@Override
@@ -50,6 +75,8 @@ public class Commodity implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Commodity other = (Commodity) obj;
+		if (abv != other.abv)
+			return false;
 		if (category == null) {
 			if (other.category != null)
 				return false;
@@ -70,6 +97,11 @@ public class Commodity implements Serializable {
 				return false;
 		} else if (!cover.equals(other.cover))
 			return false;
+		if (describe == null) {
+			if (other.describe != null)
+				return false;
+		} else if (!describe.equals(other.describe))
+			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -81,6 +113,8 @@ public class Commodity implements Serializable {
 			if (other.production != null)
 				return false;
 		} else if (!production.equals(other.production))
+			return false;
+		if (score != other.score)
 			return false;
 		return true;
 	}
