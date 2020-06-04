@@ -32,6 +32,7 @@ public class CommodityController {
 	@Autowired
 //	private UserService userService;
 	
+	
 	@GetMapping
 	public Result<List<Commodity>> getAllCommoditys() {
 		logger.info("正在读取所有商品信息...");
