@@ -100,7 +100,7 @@ public class CommodityController {
 	}
 	
 	/**
-	 * 查询热门评论商品
+	 * 查询热门订单商品
 	 * @return
 	 */
 	@GetMapping("/hot")
@@ -109,26 +109,26 @@ public class CommodityController {
 	}
 	
 	/**
-	 * 新增评论
-	 * @param CommodityId 被评论的商品编号
-	 * @param comment 将要新增的评论对象
+	 * 新增订单
+	 * @param CommodityId 被订单的商品编号
+	 * @param comment 将要新增的订单对象
 	 */
 	@PostMapping("/{CommodityId}/comment")
 	public Commodity addComment(@PathVariable String commodityId,@RequestBody Comment comment) {
-		logger.debug("将为商品"+commodityId+"新增一条评论："+comment);
-		// 把评论保存到数据库
+		logger.debug("将为商品"+commodityId+"新增一条订单："+comment);
+		// 把订单保存到数据库
 		return service.addComment(commodityId, comment);
 	}
 	
 	/**
-	 * 热门指定商品的热门评论（前4条）
+	 * 热门指定商品的热门订单（前4条）
 	 * @param CommodityId 指定的商品编号
-	 * @param comment 4条热门评论的列表（数组）
+	 * @param comment 4条热门订单的列表（数组）
 	 */
 	@GetMapping("/{CommodityId}/hotcomments")
 	public List<Comment> hotComment(@PathVariable String commodityId){
-		logger.debug("热门评论"+commodityId);
-		//从数据库获取热门评论
+		logger.debug("热门订单"+commodityId);
+		//从数据库获取热门订单
 		return service.hotComments(commodityId);
 	}
 	

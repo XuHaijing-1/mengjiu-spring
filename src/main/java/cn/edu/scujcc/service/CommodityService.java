@@ -97,9 +97,9 @@ public class CommodityService {
 				saved.setProduction(c.getProduction());
 			}
 			if(c.getComments()!=null) {
-				if(saved.getComments()!=null) { //把新评论追加到老评论后面
+				if(saved.getComments()!=null) { //把新订单追加到老订单后面
 					saved.getComments().addAll(c.getComments());
-				}else {//用新评论代替老评论
+				}else {//用新订单代替老订单
 					saved.setComments(c.getComments());
 				}
 			}
@@ -121,7 +121,7 @@ public class CommodityService {
 	}
 	
 	/**
-	 * 获取今天的评论火爆信息
+	 * 获取今天的订单火爆信息
 	 * @return
 	 */
 	public List<Commodity>getLatestCommentsCommodity(){
@@ -142,9 +142,9 @@ public class CommodityService {
 	 }
 	 
 	 /**
-	  * 向指定商品添加一条评论
+	  * 向指定商品添加一条订单
 	  * @param CommodityId 指定的商品编号
-	  * @param comment  将要新增的评论对象
+	  * @param comment  将要新增的订单对象
 	  */
 	 public Commodity addComment(String commodityId, Comment comment) {
 		 Commodity saved = getCommodity(commodityId);
@@ -158,15 +158,15 @@ public class CommodityService {
 	 
 	 
 	 /**
-	  * 返回指定商品的热门评论
+	  * 返回指定商品的热门订单
 	  * @param CommodityId 指定商品的编号
-	  * @return 热门评论的列表
+	  * @return 热门订单的列表
 	  */
 	 public List<Comment> hotComments(String commodityId){
 		 List<Comment>result=new ArrayList<>();
 		 Commodity saved=getCommodity(commodityId);
 		 if(saved!=null&&saved.getComments()!=null) {
-			 //根据评论的star进行排序
+			 //根据订单的star进行排序
 			 saved.getComments().sort(new Comparator<Comment>() {
 				 @Override
 				 public int compare(Comment o1,Comment o2) {
