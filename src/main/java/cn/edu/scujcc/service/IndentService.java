@@ -32,6 +32,7 @@ public class IndentService {
 		return repo.findAll();
 	}
 	
+	
 	/**
 	 * 获取一个商品的数据
 	 * 
