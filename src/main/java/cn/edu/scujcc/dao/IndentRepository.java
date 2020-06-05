@@ -11,10 +11,10 @@ import cn.edu.scujcc.model.Indent;
 @Repository
 public interface IndentRepository extends MongoRepository<Indent,String>{
 	
-	List<Indent>findByCommodityname(String commodityname);
+	List<Indent>findByIndentname(String indentname);
 	List<Indent>findByCategory(String category);
 
-	List<Indent> findByCommoditynameAndCategory(String commodityname, String category);
+	List<Indent> findByIndentnameAndCategory(String indentname, String category);
 	
 
 	public List<Indent>findByCommentsDtAfter(LocalDateTime theDt);

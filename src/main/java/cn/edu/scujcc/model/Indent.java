@@ -15,6 +15,7 @@ public class Indent implements Serializable {
 	private static final long serialVersionUID = 7245499099716015024L;
 	@Id
 	private String id;   //商品id
+	private String indentname; //订单名称
 	private String commodityname;  //商品名称
 	private String category; //商品类别
 	private String production;  //商品产地
@@ -30,6 +31,12 @@ public class Indent implements Serializable {
 	}
 	public void setId(String id) {
 		this.id = id;
+	}
+	public String getIndentname() {
+		return indentname;
+	}
+	public void setIndentname(String indentname) {
+		this.indentname = indentname;
 	}
 	public String getCommodityname() {
 		return commodityname;
@@ -90,9 +97,10 @@ public class Indent implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "Indent [id=" + id + ", commodityname=" + commodityname + ", category=" + category + ", production="
-				+ production + ", cover=" + cover + ", score=" + score + ", abv=" + abv + ", describe=" + describe
-				+ ", price=" + price + ", time=" + time + "]";
+		return "Indent [id=" + id + ", indentname=" + indentname + ", commodityname=" + commodityname + ", category="
+				+ category + ", production=" + production + ", cover=" + cover + ", score=" + score + ", abv=" + abv
+				+ ", describe=" + describe + ", price=" + price + ", time=" + time + "]";
 	}
+	
 	
 }
