@@ -18,7 +18,7 @@
 		<persistence strategy="locaLTempSwap" />
 	</cache>
 	
-	<cache name="indent" maxEntriesLocalHeap="1000"
+	<cache name="indents" maxEntriesLocalHeap="1000"
 		maxEntriesLocalDisk="2000" eternal="false" diskSpoolBufferSizeMB="20"
 		timeToIdleSeconds="60" timeToLiveSeconds="36000"
 		memoryStoreEvictionPolicy="LFU" transactionalMode="off">
