@@ -1,6 +1,5 @@
 package cn.edu.scujcc.service;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -108,17 +107,6 @@ public class IndentService {
 	}
 	public List<Indent>categorycxIndent(String category){
 		return repo.findByCategory(category);
-	}
-	
-	/**
-	 * 获取今天的订单火爆信息
-	 * @return
-	 */
-	public List<Indent>getLatestCommentsIndent(){
-		LocalDateTime now=LocalDateTime.now();
-		LocalDateTime today=LocalDateTime.of(now.getYear(),
-				now.getMonthValue(),now.getDayOfMonth(),0,0);
-		return repo.findByCommentsDtAfter(today);
 	}
 
 	/**

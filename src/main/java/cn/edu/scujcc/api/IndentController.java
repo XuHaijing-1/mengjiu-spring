@@ -5,7 +5,6 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import cn.edu.scujcc.model.Indent;
 import cn.edu.scujcc.model.Result;
 import cn.edu.scujcc.service.IndentService;
-//import cn.edu.scujcc.service.UserService;
 
 @RestController
 @RequestMapping("/indent")
@@ -27,9 +25,6 @@ public class IndentController {
 	
 	@Autowired
 	private IndentService service;
-	
-	@Autowired
-//	private UserService userService;
 	
 	
 	@GetMapping
@@ -99,12 +94,4 @@ public class IndentController {
 		return service.search(indentname, category);
 	}
 	
-	/**
-	 * 查询热门订单商品订单
-	 * @return
-	 */
-	@GetMapping("/hot")
-	public List<Indent>getHostIndents(){
-		return service.getLatestCommentsIndent();
-	}
 }

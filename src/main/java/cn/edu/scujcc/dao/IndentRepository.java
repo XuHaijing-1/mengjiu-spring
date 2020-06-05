@@ -1,6 +1,5 @@
 
 package cn.edu.scujcc.dao;
-import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
@@ -15,8 +14,5 @@ public interface IndentRepository extends MongoRepository<Indent,String>{
 	List<Indent>findByCategory(String category);
 
 	List<Indent> findByIndentnameAndCategory(String indentname, String category);
-	
-
-	public List<Indent>findByCommentsDtAfter(LocalDateTime theDt);
 	
 }
