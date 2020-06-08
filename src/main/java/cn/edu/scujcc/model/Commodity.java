@@ -20,22 +20,50 @@ public class Commodity implements Serializable {
 	private String production;  //商品产地
 	private List<Comment>comments;  //下单信息
 	private String cover; //商品封面图片
-	private int score; //评分
-	private int abv; //酒精度
+	private String score; //评分
+	private String abv; //酒精度
 	private String describe; //描述
-	private int price=0;  //商品价格
-	
-	
-	public int getScore() {
+	private String price;  //商品价格
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getCommodityname() {
+		return commodityname;
+	}
+	public void setCommodityname(String commodityname) {
+		this.commodityname = commodityname;
+	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
+	public String getProduction() {
+		return production;
+	}
+	public void setProduction(String production) {
+		this.production = production;
+	}
+	public String getCover() {
+		return cover;
+	}
+	public void setCover(String cover) {
+		this.cover = cover;
+	}
+	public String getScore() {
 		return score;
 	}
-	public void setScore(int score) {
+	public void setScore(String score) {
 		this.score = score;
 	}
-	public int getAbv() {
+	public String getAbv() {
 		return abv;
 	}
-	public void setAbv(int abv) {
+	public void setAbv(String abv) {
 		this.abv = abv;
 	}
 	public String getDescribe() {
@@ -44,26 +72,57 @@ public class Commodity implements Serializable {
 	public void setDescribe(String describe) {
 		this.describe = describe;
 	}
+	public String getPrice() {
+		return price;
+	}
+	public void setPrice(String price) {
+		this.price = price;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	@Override
 	public String toString() {
 		return "Commodity [id=" + id + ", commodityname=" + commodityname + ", category=" + category + ", production="
 				+ production + ", comments=" + comments + ", cover=" + cover + ", score=" + score + ", abv=" + abv
 				+ ", describe=" + describe + ", price=" + price + "]";
 	}
+	
+	/**
+	 * 返回所有评论
+	 * @return
+	 */
+	public List<Comment> getComments() {
+		return comments;
+	}
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+	
+	/**
+	 * 向当前频道新增一个评论对象
+	 * @param comment
+	 */
+	public void addComment(Comment comment) {
+		if(this.comments==null) {
+			this.comments=new ArrayList<>();
+		 }
+		this.comments.add(comment);
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + abv;
+		result = prime * result + ((abv == null) ? 0 : abv.hashCode());
 		result = prime * result + ((category == null) ? 0 : category.hashCode());
 		result = prime * result + ((comments == null) ? 0 : comments.hashCode());
 		result = prime * result + ((commodityname == null) ? 0 : commodityname.hashCode());
 		result = prime * result + ((cover == null) ? 0 : cover.hashCode());
 		result = prime * result + ((describe == null) ? 0 : describe.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + price;
+		result = prime * result + ((price == null) ? 0 : price.hashCode());
 		result = prime * result + ((production == null) ? 0 : production.hashCode());
-		result = prime * result + score;
+		result = prime * result + ((score == null) ? 0 : score.hashCode());
 		return result;
 	}
 	@Override
@@ -75,7 +134,10 @@ public class Commodity implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Commodity other = (Commodity) obj;
-		if (abv != other.abv)
+		if (abv == null) {
+			if (other.abv != null)
+				return false;
+		} else if (!abv.equals(other.abv))
 			return false;
 		if (category == null) {
 			if (other.category != null)
@@ -107,76 +169,24 @@ public class Commodity implements Serializable {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (price != other.price)
+		if (price == null) {
+			if (other.price != null)
+				return false;
+		} else if (!price.equals(other.price))
 			return false;
 		if (production == null) {
 			if (other.production != null)
 				return false;
 		} else if (!production.equals(other.production))
 			return false;
-		if (score != other.score)
+		if (score == null) {
+			if (other.score != null)
+				return false;
+		} else if (!score.equals(other.score))
 			return false;
 		return true;
 	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	public String getCommodityname() {
-		return commodityname;
-	}
-	public void setCommodityname(String commodityname) {
-		this.commodityname = commodityname;
-	}
-	public String getCategory() {
-		return category;
-	}
-	public void setCategory(String category) {
-		this.category = category;
-	}
-	public String getProduction() {
-		return production;
-	}
-	public void setProduction(String production) {
-		this.production = production;
-	}
-	public String getCover() {
-		return cover;
-	}
-	public void setCover(String cover) {
-		this.cover = cover;
-	}
-	public int getPrice() {
-		return price;
-	}
-	public void setPrice(int price) {
-		this.price = price;
-	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	/**
-	 * 返回所有评论
-	 * @return
-	 */
-	public List<Comment> getComments() {
-		return comments;
-	}
-	public void setComments(List<Comment> comments) {
-		this.comments = comments;
-	}
 	
-	/**
-	 * 向当前商品新增一个评论对象
-	 * @param comment
-	 */
-	public void addComment(Comment comment) {
-		if(this.comments==null) {
-			this.comments=new ArrayList<>();
-		 }
-		this.comments.add(comment);
-	}
+	
 	
 }
